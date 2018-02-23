@@ -14,6 +14,12 @@ special_chars = ["'", "/", ")", "(", "/", "'", "[", "{", "]", "}", "#", "$", "%"
 largest_num_of_words_any_paragraph = 200
 get_largest_num_of_words_in_question = 20
 
+sess = tf.Session()
+tf.saved_model.loader.load(sess, ["tag"], "model")
+question = sess.graph.get_tensor_by_name("question:0")
+text = sess.graph.get_tensor_by_name("text:0")
+answer_softmax = sess.graph.get_tensor_by_name("train/model/encoder-decoder/answer:0")
+
 def vectorise_paragraph(par):
     paragraphs_sentences = np.zeros((largest_num_of_words_any_paragraph, 200))
     sentences = re.split('(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s', par)
@@ -94,20 +100,14 @@ def vectorise_question(ques):
     return questions_words
 
 def get_answer(par, ques):
-    with tf.Session(graph=tf.Graph()) as sess:
-        tf.saved_model.loader.load(sess, ["tag"], "model")
-        graph = tf.get_default_graph()
-        question = graph.get_tensor_by_name("question:0")
-        text = graph.get_tensor_by_name("text:0")
-        answer_softmax = graph.get_tensor_by_name("train/model/encoder-decoder/answer:0")
-        paragraphs_sentences = vectorise_paragraph(par)
-        questions_words = vectorise_question(ques)
+    paragraphs_sentences = vectorise_paragraph(par)
+    questions_words = vectorise_question(ques)
 
-        feed_dict = {question: questions_words, text: paragraphs_sentences}
-        classification = sess.run(answer_softmax, feed_dict)
-        classif_words = util.get_words(classification)
-        a = ""
-        for word in classif_words:
-            a = a + " " + word
-        a = a + "."
-        return a[1:].capitalize()
+    feed_dict = {question: questions_words, text: paragraphs_sentences}
+    classification = sess.run(answer_softmax, feed_dict)
+    classif_words = util.get_words(classification)
+    a = ""
+    for word in classif_words:
+        a = a + " " + word
+    a = a + "."
+    return a[1:].capitalize()

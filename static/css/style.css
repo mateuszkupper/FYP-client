@@ -192,3 +192,35 @@ textarea {
 textarea {
    resize:vertical;
 }
+
+#info {
+    padding: 0 50px 0 30px;
+    /*https://www.w3schools.com/cssref/css3_pr_text-justify.asp*/
+    text-align: justify;
+    text-justify: inter-word;
+    /*font-family: EB Garamond;*/
+    font-size: 15px;
+}
+
+#info p {
+	/*font-family: EB Garamond;*/
+    font-size: 15px;
+}
+
+dt {
+    font-size: 18px;
+}
+
+#brand-logo {
+    font-size: 40px;
+    font-family: 'PT Sans Narrow', sans-serif;
+    padding-left: 10px;
+}
+
+.page-footer .container .row {
+    padding: 0 8% 0 8%;
+}
+
+.row .col.offset-l2 {
+    margin-left: 10%;
+}

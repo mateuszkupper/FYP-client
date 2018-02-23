@@ -17,3 +17,7 @@ def respond():
 @app.route('/qa')
 def root():
     return app.send_static_file('home.html')
+
+@app.route('/about')
+def about():
+    return app.send_static_file('info.html')

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<head>
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+<title>bisQA - The question answering system</title>
+<!-- Compiled and minified JavaScript -->
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=EB+Garamond"
+	rel="stylesheet">
+<!-- Include stylesheet -->
+<link href="https://cdn.quilljs.com/1.2.6/quill.snow.css"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=EB+Garamond"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link href="static/css/style.css"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="static/ajax.js"></script>
+</head>
+<body>
+	<div class="col s3 z-depth-3">
+
+		<nav class="teal lighten-2">
+			<div class="nav-wrapper white-text">
+				<a href="/qa" class="brand-logo" id="brand-logo">bisQA</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/qa">Application</a></li>
+					<li><a href="/about">About</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col l8 m12 z-depth-3 white lighten-4 black-text" id="middle">
+				<h2>Welcome!</h2>
+				<p>bisQA is a question answering system based on a number of machine learning techniques such as memory and neural networks</p>
+
+				<div id="info">
+					<h3>How does it work?</h3>
+					<p>The system allows you to enter a 200 words long paragraph, ask a question about the text and obtain an answer.
+					It is not exactly the most precise system, as it currently achieves around 3% accuracy, which means it match between the real answers and the outputted answers is around 3 in 100.
+					I am currently working to improve the accuracy, so that it will be more useful in the future. </p>
+
+					<h3>Technologies used:</h3>
+					<dl>
+						<dt>TensorFlow</dt>
+						<dd>TensorFlow™ is an open source software library for numerical computation using data flow graphs. Nodes in the graph represent mathematical operations, while the graph edges represent the multidimensional data arrays (tensors) communicated between them. The flexible architecture allows
+							you to deploy computation to one or more CPUs or GPUs in a desktop, server, or mobile device with a single API. TensorFlow was originally developed by
+							researchers and engineers working on the Google Brain Team within Google's Machine Intelligence research organization for the purposes of conducting machine learning and deep neural networks research, but the system is general enough to be applicable in a wide variety of other domains as well (source: tensorflow.org).</dd>
+						<dt>Python</dt>
+						<dd>Python is an interpreted high-level programming language for general-purpose programming. Created by Guido van Rossum and first released in 1991, Python has a design philosophy that emphasizes code readability, and a syntax that allows programmers to express concepts in fewer lines of code, notably using significant whitespace. It provides constructs that enable clear programming on both small and large scales (source: wikipedia.org).</dd>
+					</dl>
+					<h3>Machine learning techniques used:</h3>
+					<dl>
+						<dt>End-To-End Memory Networks</dt>
+						<dd>The architecture is a form of Memory Network (Weston et al., 2015) but unlike the model in that work, it is trained end-to-end, and hence requires significantly less supervision during training,
+							making it more generally applicable in realistic settings. It can also be seen as an extension of RNNsearch to the case where multiple computational steps (hops) are performed per output symbol <a href="https://arxiv.org/abs/1503.08895">(Sukhbaatar at al., 2015)</a>.</dd>
+						<dt>Encoder-decoder architecture</dt>
+						<dd>Neural machine translation is a recently proposed approach to machine translation. Unlike the traditional statistical machine translation, the neural machine translation aims at building a single neural network that can be jointly tuned to maximize the translation performance. The models proposed recently for neural machine translation often belong to a family of encoder-decoders and consists
+							of an encoder that encodes a source sentence into a fixed-length vector from which a decoder generates a translation <a href="https://arxiv.org/abs/1409.0473">(Bahdanau at al., 2014)</a>.</dd>
+					</dl>
+				</div>
+
+
+			</div>
+			<div class="row"></div>
+		</div>
+		<footer class="page-footer teal lighten-2 z-depth-2">
+			<div class="container">
+				<div class="row">
+					<div class="col l6 s12">
+						<h5 class="white-text">bisQA</h5>
+						<p class="white-text text-lighten-4">Ask a question to obtain an answer!.</p>
+					</div>
+					<div class="col l4 offset-l2 s12">
+						<h5 class="white-text">Links</h5>
+						<ul>
+							<li><a class="white-text text-lighten-3" href="/qa">Home</a></li>
+							<li><a class="white-text text-lighten-3" href="/about">About</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="footer-copyright">
+				<div class="container">
+					© 2018 Mateusz Kupper, Business Information Systems, University College Cork
+				</div>
+			</div>
+		</footer>
+	</div>
+
+
+	<script>
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+        
+
+</script>
+</body>
+</html>
